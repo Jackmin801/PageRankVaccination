@@ -49,5 +49,8 @@ graph.print_adj()
 # Optional degree histogram #
 #############################
 if sys.argv[3] == "hist":
+    import numpy as np
+    meow = np.array(graph.deg)
+    plt.title(f"Mean: {meow.mean()} Std:{meow.std()}")
     plt.hist(graph.deg)
     plt.show()
