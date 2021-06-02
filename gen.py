@@ -51,6 +51,8 @@ graph.print_adj()
 if sys.argv[3] == "hist":
     import numpy as np
     meow = np.array(graph.deg)
+    plt.xlabel("Outdegree")
+    plt.ylabel("Nodes")
     plt.title(f"Mean: {meow.mean()} Std:{meow.std()}")
     plt.hist(graph.deg)
     plt.show()
