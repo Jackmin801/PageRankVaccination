@@ -10,27 +10,39 @@ def step(adj,PR,outdeg):
     return new_PR
 
 def main():
+    ##########
+    # Inputs #
+    ##########
     N,E,M = map(int,input().split())
     P,I = map(int,input().split())
     input()
     adj = [list(map(int,input().split())) for i in range(N)]
+    
+    ############
+    # PageRank #
+    ############
     outdeg = [len(i) for i in adj]
     PR = [1.]*N
-
-    for i in range(1000):
+    for k in range(1000):
         new_PR = step(adj,PR,outdeg)
         error = sum(abs(i-j) for i,j in zip(new_PR,PR))
         PR = new_PR
-        if error < 1e-7:
+        print(k,error)
+        if error < N*1e-7:
             break
     vaccinated = sorted([(rank,i) for i,rank in enumerate(PR)], reverse=True)[:M]
     vaccinated = [i[1] for i in vaccinated]
 
+    ###########
+    # Outputs #
+    ###########
+    return
     print(N,E,M)
     print(P,I)
     print(' '.join(str(j) for j in vaccinated))
     for i in adj:
         print(' '.join(str(j) for j in i))
 
-main()
+if __name__ == "__main__":
+    main()
 
