@@ -27,7 +27,7 @@ def main():
         new_PR = step(adj,PR,outdeg)
         error = sum(abs(i-j) for i,j in zip(new_PR,PR))
         PR = new_PR
-        print(k,error)
+        #print(k,error)
         if error < N*1e-7:
             break
     vaccinated = sorted([(rank,i) for i,rank in enumerate(PR)], reverse=True)[:M]
@@ -36,7 +36,6 @@ def main():
     ###########
     # Outputs #
     ###########
-    return
     print(N,E,M)
     print(P,I)
     print(' '.join(str(j) for j in vaccinated))

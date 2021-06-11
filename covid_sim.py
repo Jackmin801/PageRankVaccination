@@ -74,6 +74,7 @@ def main():
     # Inputs #
     ##########
     n_days = int(sys.argv[1])
+    pltfile = sys.argv[2]
     random.seed(sys.argv[-1])
 
     N,E,M = map(int,input().split())
@@ -102,16 +103,17 @@ def main():
     #########
     max_active = max(n_active_cases)
     max_new = max(n_new_cases)
-    fig, ax = plt.subplots(3,figsize=(7,12))
+    fig, ax = plt.subplots(4,figsize=(7,15))
     ax[0].plot(np.arange(n_days),n_active_cases)
     ax[1].plot(np.arange(n_days),n_total_cases)
     ax[2].plot(np.arange(n_days),n_new_cases)
-    #ax[3].plot(np.arange(n_days),R)
+    ax[3].plot(np.arange(n_days),R)
     ax[0].set(ylabel="Active cases", title=f"Max active cases = {max_active} , Max new cases = {max_new}")
     ax[1].set(ylabel="Total cases")
     ax[2].set(xlabel="Days",ylabel="New cases")
-    #ax[3].set(xlabel="Days",ylabel="Exponential rolling average R")
-    plt.show()
+    ax[3].set(xlabel="Days",ylabel="Exponential rolling average R")
+    plt.savefig(pltfile)
+    #plt.show()
 
 main()
 

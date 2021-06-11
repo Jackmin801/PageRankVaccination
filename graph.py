@@ -43,7 +43,7 @@ class Graph():
     def print_edges(self):
         for node,children in enumerate(self.adj):
             for child in children:
-                print(node,child)
+                print(str(node)+","+str(child))
 
     def print_adj(self):
         for children in self.adj:

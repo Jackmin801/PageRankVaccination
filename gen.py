@@ -35,15 +35,20 @@ vaccinated = random.sample(candidates,M)
 ##########
 # Prints #
 ##########
-# Variables
-print(graph.nodes, graph.edges, M)
-print(P,I)
+def adj_print():
+    # Variables
+    print(graph.nodes, graph.edges, M)
+    print(P,I)
 
-# Vaccinated
-print(' '.join(map(str,vaccinated)))
+    # Vaccinated
+    print(' '.join(map(str,vaccinated)))
 
-# Edges
-graph.print_adj()
+    # Edges
+    graph.print_adj()
+
+adj_print()
+#print('Source,Target')
+#graph.print_edges()
 
 #############################
 # Optional degree histogram #
